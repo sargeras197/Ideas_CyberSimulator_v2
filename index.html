@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSimulator v3</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1220;
+            color: #eaf2ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .label {
+            color: #63e6be;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 60px);
+            margin: 15px 0;
+        }
+
+        h1 span {
+            color: #63e6be;
+        }
+
+        .description {
+            color: #a8b6ce;
+            line-height: 1.7;
+            font-size: 17px;
+            max-width: 650px;
+        }
+
+        .panel {
+            margin-top: 35px;
+            padding: 30px;
+            background: #111c2e;
+            border: 1px solid #26354d;
+            border-radius: 18px;
+        }
+
+        .panel h2 {
+            margin-bottom: 12px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .card {
+            padding: 20px;
+            background: #17243a;
+            border: 1px solid #2a3a54;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #63e6be;
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #a8b6ce;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        button {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 10px;
+            background: #63e6be;
+            color: #081b15;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #8af5d4;
+            transform: scale(1.03);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: default;
+            transform: none;
+        }
+
+        #status {
+            color: #a8b6ce;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #71819a;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .panel {
+                padding: 20px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="label">
+            Cybersecurity • Simulation • Learning
+        </div>
+
+        <h1>
+            CyberSimulator <span>v3</span>
+        </h1>
+
+        <p class="description">
+            Інтерактивне середовище для вивчення кібербезпеки,
+            моделювання цифрових загроз та перевірки навичок
+            безпечної поведінки.
+        </p>
+
+        <section class="panel">
+
+            <h2>Ласкаво просимо до симулятора</h2>
+
+            <p class="description">
+                Оберіть напрямок роботи та розпочніть навчальну сесію.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="icon">🛡️</div>
+                    <h3>Кіберзахист</h3>
+                    <p>
+                        Вивчайте основні принципи захисту інформації
+                        та цифрових систем.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🧪</div>
+                    <h3>Сценарії</h3>
+                    <p>
+                        Розглядайте навчальні ситуації та аналізуйте
+                        можливі кіберзагрози.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">📊</div>
+                    <h3>Аналіз</h3>
+                    <p>
+                        Оцінюйте результати та закріплюйте
+                        отримані знання.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="actions">
+                <button id="startBtn">
+                    Розпочати симуляцію
+                </button>
+
+                <span id="status">
+                    Система готова до запуску.
+                </span>
+            </div>
+
+        </section>
+
+        <footer>
+            CyberSimulator v3 · Навчальний проєкт
+        </footer>
+
+    </main>
+
+    <script>
+        const startBtn = document.getElementById("startBtn");
+        const status = document.getElementById("status");
+
+        startBtn.addEventListener("click", function () {
+            status.textContent =
+                "Навчальну сесію розпочато. Модуль симуляції готовий.";
+
+            startBtn.textContent = "Сесію розпочато";
+            startBtn.disabled = true;
+        });
+    </script>
+
+</body>
+</html>
